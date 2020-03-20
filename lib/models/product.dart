@@ -8,7 +8,7 @@ class Product {
   final double price;
   final Category category;
   bool isFavourite;
-  final int rating;
+  final double rating;
 
   Product({
     @required this.author,
@@ -27,7 +27,7 @@ class Product {
         category: Category.values[json['category']],
         price: json['price'].toDouble(),
         isFavourite: json['isFavourite'] == 1,
-        rating: json['rating'],
+        rating: json['rating'].toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
@@ -39,4 +39,7 @@ class Product {
         'isFavourite': isFavourite ? 1 : 0,
         'rating': rating,
       };
+
+  @override
+  String toString() => toJson().toString();
 }
