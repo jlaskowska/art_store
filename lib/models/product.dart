@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_cart/enums/category.dart';
 
 class Product {
-  int id;
-  String author;
-  String name;
-  double price;
-  int category;
+  final int id;
+  final String author;
+  final String name;
+  final double price;
+  final Category category;
   bool isFavourite;
-  int rating;
+  final int rating;
 
   Product({
     @required this.author,
@@ -18,4 +19,24 @@ class Product {
     @required this.rating,
     @required this.isFavourite,
   });
+
+  factory Product.fromJson(Map<String, dynamic> json) => Product(
+        id: json['id'],
+        name: json['name'],
+        author: json['author'],
+        category: Category.values[json['category']],
+        price: json['price'].toDouble(),
+        isFavourite: json['isFavourite'] == 1,
+        rating: json['rating'],
+      );
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'author': author,
+        'category': category.index,
+        'price': price,
+        'isFavourite': isFavourite ? 1 : 0,
+        'rating': rating,
+      };
 }
