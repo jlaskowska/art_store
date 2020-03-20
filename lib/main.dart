@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:shopping_cart/localizations.dart';
+import 'package:shopping_cart/services/i_database_service.dart';
+import 'package:shopping_cart/services/sqlite_database_service.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final sqliteDatabaseService = SQLiteDatabaseService();
+  await sqliteDatabaseService.initialize();
+
+  runApp(
+    Provider<IDatabaseService>.value(
+      value: sqliteDatabaseService,
+      child: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   @override
