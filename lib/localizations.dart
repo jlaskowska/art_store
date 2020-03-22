@@ -16,6 +16,9 @@ class AppLocalizations {
   static String get bottomNavigationBarMenuFavourite =>
       _getText('bottomNavigationBarMenuFavourite');
 
+  static String get homeScreenHeadlineNewWork =>
+      _getText('homeScreenHeadlineNewWork');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
@@ -23,6 +26,7 @@ class AppLocalizations {
     'bottomNavigationBarMenuHome': 'Home',
     'bottomNavigationBarMenuCart': 'Cart',
     'bottomNavigationBarMenuFavourite': 'Favourites',
+    'homeScreenHeadlineNewWork': 'New Work',
   };
 
   static Map<String, String> _deValues = {
@@ -30,6 +34,7 @@ class AppLocalizations {
     'bottomNavigationBarMenuHome': 'Startseite',
     'bottomNavigationBarMenuCart': 'Warenkorb',
     'bottomNavigationBarMenuFavourite': 'Favourites',
+    'homeScreenHeadlineNewWork': 'Neue Werke',
   };
 
   static Map<String, Map<String, String>> _allValues = {
