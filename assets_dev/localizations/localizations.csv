@@ -1,2 +1,5 @@
 keys;en;de
 appTitle;Shopping Cart;Einkaufswagen
+bottomNavigationBarMenuHome;Home;Startseite
+bottomNavigationBarMenuCart;Cart;Warenkorb
+bottomNavigationBarMenuFavourite;Favourites;Favourites
