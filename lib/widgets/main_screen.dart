@@ -40,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
               style: TextStyle(
                 fontFamily: GoogleFonts.fingerPaint().fontFamily,
                 color: Colors.black,
-                fontSize: 50,
+                fontSize: 60,
               ),
               children: <TextSpan>[
                 TextSpan(
