@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopping_cart/localizations.dart';
+import 'package:shopping_cart/widgets/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key key}) : super(key: key);
@@ -13,9 +14,9 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _children = [
-    PlaceholderWidget(Colors.white),
+    HomeScreen(),
     PlaceholderWidget(Colors.deepOrange),
-    PlaceholderWidget(Colors.green)
+    PlaceholderWidget(Colors.green),
   ];
 
   void onTap(int index) {
@@ -37,7 +38,7 @@ class _MainScreenState extends State<MainScreen> {
             text: TextSpan(
               text: art,
               style: TextStyle(
-                fontFamily: GoogleFonts.ruthie().fontFamily,
+                fontFamily: GoogleFonts.fingerPaint().fontFamily,
                 color: Colors.black,
                 fontSize: 50,
               ),
