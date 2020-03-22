@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shopping_cart/localizations.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key key}) : super(key: key);
@@ -10,11 +11,13 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
+
   final List<Widget> _children = [
     PlaceholderWidget(Colors.white),
     PlaceholderWidget(Colors.deepOrange),
     PlaceholderWidget(Colors.green)
   ];
+
   void onTap(int index) {
     setState(() {
       _currentIndex = index;
@@ -23,13 +26,16 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    const String art = 'Art';
+    const String store = ' Store';
+
     return Scaffold(
       appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white,
           title: RichText(
             text: TextSpan(
-              text: 'Art',
+              text: art,
               style: TextStyle(
                 fontFamily: GoogleFonts.ruthie().fontFamily,
                 color: Colors.black,
@@ -37,7 +43,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
               children: <TextSpan>[
                 TextSpan(
-                  text: ' Store',
+                  text: store,
                   style: TextStyle(fontFamily: GoogleFonts.rubik().fontFamily, fontSize: 20, color: Colors.black),
                 ),
               ],
@@ -51,16 +57,16 @@ class _MainScreenState extends State<MainScreen> {
         elevation: 0,
         items: [
           BottomNavigationBarItem(
-            icon: new Icon(Icons.home),
-            title: new Text('Home'),
+            icon: Icon(Icons.home),
+            title: Text(AppLocalizations.bottomNavigationBarMenuHome),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.shopping_cart),
-            title: new Text('Cart'),
+            icon: Icon(Icons.shopping_cart),
+            title: Text(AppLocalizations.bottomNavigationBarMenuCart),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite_border),
-            title: Text('Favourite'),
+            title: Text(AppLocalizations.bottomNavigationBarMenuFavourite),
           ),
         ],
       ),
