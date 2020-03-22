@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key key}) : super(key: key);
@@ -23,7 +24,27 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.white,
+          title: RichText(
+            text: TextSpan(
+              text: 'Art',
+              style: TextStyle(
+                fontFamily: GoogleFonts.ruthie().fontFamily,
+                color: Colors.black,
+                fontSize: 50,
+              ),
+              children: <TextSpan>[
+                TextSpan(
+                  text: ' Store',
+                  style: TextStyle(fontFamily: GoogleFonts.rubik().fontFamily, fontSize: 20, color: Colors.black),
+                ),
+              ],
+            ),
+          )),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         selectedItemColor: Colors.black,
         currentIndex: _currentIndex,
         onTap: onTap,
