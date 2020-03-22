@@ -56,6 +56,6 @@ flappy_translator:
   class_name: "AppLocalizations"
   delimiter: ";"
   start_index: 1
-  depend_on_context: true
+  depend_on_context: false
   use_single_quotes: true
   replace_no_break_spaces: false

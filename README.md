@@ -2,9 +2,7 @@
 
 A shopping cart app built using Flutter.
 
-## Category
-
-0 Pop
-1 Modern
-2 Nature
-3 Folk
+This project uses flappy_translator to generate a i18n localization file from CSV using the command
+```
+flutter pub run flappy_translator
+```
