@@ -9,7 +9,11 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
-  final List<Widget> _children = [];
+  final List<Widget> _children = [
+    PlaceholderWidget(Colors.white),
+    PlaceholderWidget(Colors.deepOrange),
+    PlaceholderWidget(Colors.green)
+  ];
   void onTap(int index) {
     setState(() {
       _currentIndex = index;
@@ -39,7 +43,20 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: Center(child: Text('Hello')),
+      body: _children[_currentIndex],
+    );
+  }
+}
+
+class PlaceholderWidget extends StatelessWidget {
+  final Color color;
+
+  PlaceholderWidget(this.color);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: color,
     );
   }
 }
