@@ -9,6 +9,7 @@ class Product {
   final Category category;
   bool isFavourite;
   final double rating;
+  final String assetPath;
 
   Product({
     @required this.author,
@@ -18,7 +19,7 @@ class Product {
     @required this.price,
     @required this.rating,
     @required this.isFavourite,
-  });
+  }) : assetPath = 'assets/images/$id.jpeg';
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json['id'],
