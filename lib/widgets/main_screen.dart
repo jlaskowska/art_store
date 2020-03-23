@@ -27,16 +27,13 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const String art = 'Art';
-    const String store = ' Store';
-
     return Scaffold(
       appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white,
           title: RichText(
             text: TextSpan(
-              text: art,
+              text: AppLocalizations.appBarHeadlineArt,
               style: TextStyle(
                 fontFamily: GoogleFonts.fingerPaint().fontFamily,
                 color: Colors.black,
@@ -44,7 +41,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
               children: <TextSpan>[
                 TextSpan(
-                  text: store,
+                  text: ' ${AppLocalizations.appBarHeadlineStore}',
                   style: TextStyle(fontFamily: GoogleFonts.rubik().fontFamily, fontSize: 20, color: Colors.black),
                 ),
               ],
