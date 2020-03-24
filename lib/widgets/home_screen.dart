@@ -43,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisCount: 2,
               itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int index) => Teaser(
+                onTap: () => print('Detail Page'),
                 title: snapshot.data[index].name,
                 author: snapshot.data[index].author,
                 assetPath: snapshot.data[index].assetPath,
