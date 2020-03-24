@@ -9,8 +9,13 @@ class Teaser extends StatelessWidget {
   final String author;
   final Function onTap;
 
-  const Teaser({Key key, @required this.assetPath, @required this.title, @required this.author, @required this.onTap})
-      : super(key: key);
+  const Teaser({
+    Key key,
+    @required this.assetPath,
+    @required this.title,
+    @required this.author,
+    @required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
