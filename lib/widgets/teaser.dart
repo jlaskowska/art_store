@@ -18,22 +18,22 @@ class Teaser extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Image.asset(
               assetPath,
               fit: BoxFit.cover,
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 8.0, bottom: 4),
+              padding: const EdgeInsets.only(top: 8.0, bottom: 4, left: 8),
               child: Text(
                 title,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
+              padding: const EdgeInsets.only(bottom: 8.0, left: 8),
               child: Text(
                 author,
                 style: TextStyle(fontSize: 12),
