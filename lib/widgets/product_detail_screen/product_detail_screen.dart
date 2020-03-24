@@ -16,15 +16,18 @@ class ProductDetailScreen extends StatelessWidget {
           builder: (context, constraints) => Column(
             children: <Widget>[
               Container(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(40),
-                  ),
-                  child: Image.asset(
-                    product.assetPath,
-                    fit: BoxFit.cover,
-                    width: constraints.maxWidth,
-                    height: constraints.maxHeight * 0.5,
+                child: Hero(
+                  tag: product.id,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(40),
+                    ),
+                    child: Image.asset(
+                      product.assetPath,
+                      fit: BoxFit.cover,
+                      width: constraints.maxWidth,
+                      height: constraints.maxHeight * 0.5,
+                    ),
                   ),
                 ),
               ),

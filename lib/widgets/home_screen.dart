@@ -43,15 +43,18 @@ class _HomeScreenState extends State<HomeScreen> {
             return StaggeredGridView.countBuilder(
               crossAxisCount: 2,
               itemCount: snapshot.data.length,
-              itemBuilder: (BuildContext context, int index) => Teaser(
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (ctx) => ProductDetailScreen(product: snapshot.data[index]),
+              itemBuilder: (BuildContext context, int index) => Hero(
+                tag: snapshot.data[index].id,
+                child: Teaser(
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (ctx) => ProductDetailScreen(product: snapshot.data[index]),
+                    ),
                   ),
+                  title: snapshot.data[index].name,
+                  author: snapshot.data[index].author,
+                  assetPath: snapshot.data[index].assetPath,
                 ),
-                title: snapshot.data[index].name,
-                author: snapshot.data[index].author,
-                assetPath: snapshot.data[index].assetPath,
               ),
               staggeredTileBuilder: (int index) => StaggeredTile.fit(1),
               mainAxisSpacing: 4.0,
