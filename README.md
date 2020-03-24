@@ -6,3 +6,5 @@ This project uses flappy_translator to generate a i18n localization file from CS
 ```
 flutter pub run flappy_translator
 ```
+
+font Arthure taken form https://www.dafont.com/arthure.font

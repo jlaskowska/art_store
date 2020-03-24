@@ -35,13 +35,13 @@ class _MainScreenState extends State<MainScreen> {
             text: TextSpan(
               text: AppLocalizations.appBarHeadlineArt,
               style: TextStyle(
-                fontFamily: GoogleFonts.fingerPaint().fontFamily,
+                fontFamily: 'Arthure',
                 color: Colors.black,
                 fontSize: 60,
               ),
               children: <TextSpan>[
                 TextSpan(
-                  text: ' ${AppLocalizations.appBarHeadlineStore}',
+                  text: '${AppLocalizations.appBarHeadlineStore}',
                   style: TextStyle(fontFamily: GoogleFonts.rubik().fontFamily, fontSize: 20, color: Colors.black),
                 ),
               ],
