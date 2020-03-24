@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Teaser extends StatelessWidget {
+  static const _borderRadius = 10.0;
+  static const _padding = 8.0;
+
   final String assetPath;
   final String title;
   final String author;
@@ -15,25 +18,31 @@ class Teaser extends StatelessWidget {
       onTap: onTap,
       child: Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(_borderRadius),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Image.asset(
-              assetPath,
-              fit: BoxFit.cover,
+            ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(_borderRadius),
+                topRight: Radius.circular(_borderRadius),
+              ),
+              child: Image.asset(
+                assetPath,
+                fit: BoxFit.cover,
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 8.0, bottom: 4, left: 8),
+              padding: const EdgeInsets.only(top: _padding, bottom: 4, left: _padding),
               child: Text(
                 title,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 8.0, left: 8),
+              padding: const EdgeInsets.only(bottom: _padding, left: _padding),
               child: Text(
                 author,
                 style: TextStyle(fontSize: 12),
