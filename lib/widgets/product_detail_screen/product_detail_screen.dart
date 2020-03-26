@@ -47,36 +47,42 @@ class ProductDetailScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 32.0, top: 32, bottom: 16),
-                    child: AutoSizeText(
-                      product.name,
-                      minFontSize: 20,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 32,
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16.0, top: 32, bottom: 16),
+                      child: AutoSizeText(
+                        product.name,
+                        minFontSize: 20,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30,
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 32.0, top: 32),
-                    child: AutoSizeText(
-                      product.price.toString(),
-                      minFontSize: 18,
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 16.0, top: 32),
+                      child: AutoSizeText(
+                        product.price.toString(),
+                        minFontSize: 18,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: AutoSizeText(
                   product.author,
-                  minFontSize: 14,
+                  minFontSize: 12,
                   style: TextStyle(fontSize: 18),
                 ),
               ),
