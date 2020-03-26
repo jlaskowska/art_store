@@ -45,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int index) => Hero(
                 flightShuttleBuilder: (
+                  // needs to be overriden because of pixel overflow bug. Taken from https://github.com/flutter/flutter/issues/27320
                   BuildContext flightContext,
                   Animation<double> animation,
                   HeroFlightDirection flightDirection,
