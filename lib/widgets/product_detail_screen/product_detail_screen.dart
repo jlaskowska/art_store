@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/localizations.dart';
 import 'package:shopping_cart/models/product.dart';
-import 'package:shopping_cart/widgets/common/app_bar.dart';
+import 'package:shopping_cart/widgets/common/app_bar_title.dart';
 import 'package:shopping_cart/widgets/product_detail_screen/star_rating.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -17,6 +17,7 @@ class ProductDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: AppBarTitle(),
+        centerTitle: true,
         actions: <Widget>[
           IconButton(
             icon: Icon(

@@ -18,7 +18,7 @@ class AppBarTitle extends StatelessWidget {
         ),
         children: <TextSpan>[
           TextSpan(
-            text: '${AppLocalizations.appBarHeadlineStore}',
+            text: AppLocalizations.appBarHeadlineStore,
             style: TextStyle(
               fontFamily: GoogleFonts.rubik().fontFamily,
               fontSize: 20,

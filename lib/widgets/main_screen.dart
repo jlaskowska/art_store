@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/localizations.dart';
-import 'package:shopping_cart/widgets/common/app_bar.dart';
+import 'package:shopping_cart/widgets/common/app_bar_title.dart';
 import 'package:shopping_cart/widgets/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -30,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        centerTitle: true,
         title: AppBarTitle(),
       ),
       bottomNavigationBar: BottomNavigationBar(
