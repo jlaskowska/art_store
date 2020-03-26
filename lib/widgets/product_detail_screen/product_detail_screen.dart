@@ -22,7 +22,9 @@ class ProductDetailScreen extends StatelessWidget {
             icon: Icon(
               Icons.favorite_border,
             ),
-            onPressed: () {},
+            onPressed: () {
+              print('Added to favourites');
+            },
           ),
         ],
       ),
@@ -63,7 +65,7 @@ class ProductDetailScreen extends StatelessWidget {
                       minFontSize: 20,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 30,
+                        fontSize: 25,
                       ),
                     ),
                   ),
@@ -85,7 +87,7 @@ class ProductDetailScreen extends StatelessWidget {
                 child: AutoSizeText(
                   product.author,
                   minFontSize: 12,
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 14),
                 ),
               ),
               Expanded(
@@ -95,14 +97,19 @@ class ProductDetailScreen extends StatelessWidget {
                     width: constraints.maxWidth * 0.75,
                     child: ButtonTheme(
                       height: 50,
-                      child: RaisedButton(
-                        elevation: 0,
-                        color: Colors.black,
-                        child: Text(
-                          AppLocalizations.productDetailScreenAddToBasketButton.toUpperCase(),
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: RaisedButton(
+                          elevation: 0,
+                          color: Colors.black,
+                          child: Text(
+                            AppLocalizations.productDetailScreenAddToBasketButton.toUpperCase(),
+                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                          ),
+                          onPressed: () {
+                            print('Added to cart');
+                          },
                         ),
-                        onPressed: () {},
                       ),
                     ),
                   ),
