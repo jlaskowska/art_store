@@ -36,8 +36,8 @@ class AppLocalizations {
     'bottomNavigationBarMenuHome': 'Startseite',
     'bottomNavigationBarMenuCart': 'Warenkorb',
     'bottomNavigationBarMenuFavourite': 'Favourites',
-    'appBarHeadlineArt': 'Kunst',
-    'appBarHeadlineStore': 'Laden',
+    'appBarHeadlineArt': 'Art',
+    'appBarHeadlineStore': 'Store',
     'productDetailScreenAddToBasketButton': 'In den Warenkorb hinzufügen',
   };
 
