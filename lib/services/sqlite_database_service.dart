@@ -51,22 +51,4 @@ class SQLiteDatabaseService implements IDatabaseService {
 
     return products;
   }
-
-  @override
-  Future<List<Product>> getNewestProducts() async {
-    List<Product> newestProducts = [];
-
-    try {
-      final List<Map> results = await _database.rawQuery('SELECT * from Products ORDER BY RANDOM() LIMIT 5');
-
-      for (Map map in results) {
-        Product product = Product.fromJson(map);
-        newestProducts.add(product);
-      }
-    } catch (e) {
-      print(e);
-    }
-
-    return newestProducts;
-  }
 }
