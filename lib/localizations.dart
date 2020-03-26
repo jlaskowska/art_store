@@ -14,9 +14,6 @@ class AppLocalizations {
   static String get bottomNavigationBarMenuFavourite =>
       _getText('bottomNavigationBarMenuFavourite');
 
-  static String get homeScreenHeadlineNewWork =>
-      _getText('homeScreenHeadlineNewWork');
-
   static String get appBarHeadlineArt => _getText('appBarHeadlineArt');
 
   static String get appBarHeadlineStore => _getText('appBarHeadlineStore');
@@ -30,7 +27,6 @@ class AppLocalizations {
     'bottomNavigationBarMenuHome': 'Home',
     'bottomNavigationBarMenuCart': 'Cart',
     'bottomNavigationBarMenuFavourite': 'Favourites',
-    'homeScreenHeadlineNewWork': 'New Work',
     'appBarHeadlineArt': 'Art',
     'appBarHeadlineStore': 'Store',
     'productDetailScreenAddToBasketButton': 'Add to basket',
@@ -40,7 +36,6 @@ class AppLocalizations {
     'bottomNavigationBarMenuHome': 'Startseite',
     'bottomNavigationBarMenuCart': 'Warenkorb',
     'bottomNavigationBarMenuFavourite': 'Favourites',
-    'homeScreenHeadlineNewWork': 'Neue Werke',
     'appBarHeadlineArt': 'Kunst',
     'appBarHeadlineStore': 'Laden',
     'productDetailScreenAddToBasketButton': 'In den Warenkorb hinzufügen',
