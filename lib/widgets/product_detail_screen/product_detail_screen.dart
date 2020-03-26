@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shopping_cart/localizations.dart';
 import 'package:shopping_cart/models/product.dart';
 
@@ -19,8 +20,15 @@ class ProductDetailScreen extends StatelessWidget {
               Icons.favorite_border,
             ),
             onPressed: () {},
-          )
+          ),
         ],
+        leading: IconButton(
+          icon: Icon(Icons.close),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          color: Colors.black,
+        ),
       ),
       body: SafeArea(
         child: LayoutBuilder(
