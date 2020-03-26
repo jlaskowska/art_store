@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopping_cart/localizations.dart';
+import 'package:shopping_cart/widgets/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key key}) : super(key: key);
@@ -13,9 +14,9 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _children = [
-    PlaceholderWidget(Colors.white),
+    HomeScreen(),
     PlaceholderWidget(Colors.deepOrange),
-    PlaceholderWidget(Colors.green)
+    PlaceholderWidget(Colors.green),
   ];
 
   void onTap(int index) {
@@ -26,24 +27,21 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const String art = 'Art';
-    const String store = ' Store';
-
     return Scaffold(
       appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white,
           title: RichText(
             text: TextSpan(
-              text: art,
+              text: AppLocalizations.appBarHeadlineArt,
               style: TextStyle(
-                fontFamily: GoogleFonts.ruthie().fontFamily,
+                fontFamily: 'Arthure',
                 color: Colors.black,
-                fontSize: 50,
+                fontSize: 60,
               ),
               children: <TextSpan>[
                 TextSpan(
-                  text: store,
+                  text: '${AppLocalizations.appBarHeadlineStore}',
                   style: TextStyle(fontFamily: GoogleFonts.rubik().fontFamily, fontSize: 20, color: Colors.black),
                 ),
               ],
