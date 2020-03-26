@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shopping_cart/localizations.dart';
+import 'package:shopping_cart/widgets/common/app_bar_title.dart';
 import 'package:shopping_cart/widgets/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -29,24 +29,10 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          title: RichText(
-            text: TextSpan(
-              text: AppLocalizations.appBarHeadlineArt,
-              style: TextStyle(
-                fontFamily: 'Arthure',
-                color: Colors.black,
-                fontSize: 60,
-              ),
-              children: <TextSpan>[
-                TextSpan(
-                  text: '${AppLocalizations.appBarHeadlineStore}',
-                  style: TextStyle(fontFamily: GoogleFonts.rubik().fontFamily, fontSize: 20, color: Colors.black),
-                ),
-              ],
-            ),
-          )),
+        elevation: 0,
+        centerTitle: true,
+        title: AppBarTitle(),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         selectedItemColor: Colors.black,

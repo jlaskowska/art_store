@@ -26,6 +26,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Colors.white,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+          actionsIconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+        ),
+        // scaffoldBackgroundColor: Colors.white,
         fontFamily: GoogleFonts.rubik().fontFamily,
       ),
       localizationsDelegates: [
