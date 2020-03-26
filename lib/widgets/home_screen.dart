@@ -44,6 +44,17 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisCount: 2,
               itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int index) => Hero(
+                flightShuttleBuilder: (
+                  BuildContext flightContext,
+                  Animation<double> animation,
+                  HeroFlightDirection flightDirection,
+                  BuildContext fromHeroContext,
+                  BuildContext toHeroContext,
+                ) {
+                  return SingleChildScrollView(
+                    child: fromHeroContext.widget,
+                  );
+                },
                 tag: snapshot.data[index].id,
                 child: Teaser(
                   onTap: () => Navigator.of(context).push(
