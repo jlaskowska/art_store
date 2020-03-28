@@ -8,6 +8,9 @@ import 'package:shopping_cart/services/i_database_service.dart';
 import 'package:sqflite/sqflite.dart' as sql;
 
 class SQLiteDatabaseService implements IDatabaseService {
+  static const String _favouriteQuery = 'SELECT * from Products where isFavourite=1';
+  static const String _allProductsQuery = 'SELECT * from Products';
+
   sql.Database _database;
 
   @override
@@ -35,11 +38,16 @@ class SQLiteDatabaseService implements IDatabaseService {
   }
 
   @override
-  Future<List<Product>> getAllProducts() async {
+  Future<List<Product>> getAllProducts() async => await _getProductsWithQuery(_allProductsQuery);
+
+  @override
+  Future<List<Product>> getFavouriteProducts() async => await _getProductsWithQuery(_favouriteQuery);
+
+  Future<List<Product>> _getProductsWithQuery(String query) async {
     List<Product> products = [];
 
     try {
-      final List<Map> results = await _database.rawQuery('SELECT * from Products');
+      final List<Map> results = await _database.rawQuery(query);
 
       for (Map map in results) {
         Product product = Product.fromJson(map);
@@ -50,5 +58,17 @@ class SQLiteDatabaseService implements IDatabaseService {
     }
 
     return products;
+  }
+
+  @override
+  Future<void> toggleIsFavourite(Product product) async {
+    product.isFavourite = !product.isFavourite;
+    int _productIsFavourite = product.isFavourite ? 1 : 0;
+
+    try {
+      await _database.rawUpdate('UPDATE Products SET isFavourite=$_productIsFavourite WHERE id == ${product.id}');
+    } catch (e) {
+      print(e);
+    }
   }
 }
