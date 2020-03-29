@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/localizations.dart';
 import 'package:shopping_cart/widgets/common/app_bar_title.dart';
+import 'package:shopping_cart/widgets/favourite_screen/favourite_screen.dart';
 import 'package:shopping_cart/widgets/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _children = [
     HomeScreen(),
     PlaceholderWidget(Colors.deepOrange),
-    PlaceholderWidget(Colors.green),
+    FavouriteScreen(),
   ];
 
   void onTap(int index) {
