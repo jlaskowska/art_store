@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/models/product.dart';
 import 'package:shopping_cart/services/i_database_service.dart';
-import 'package:shopping_cart/widgets/product_detail_screen/product_detail_screen.dart';
 
 class FavouriteScreen extends StatefulWidget {
   const FavouriteScreen({Key key}) : super(key: key);
