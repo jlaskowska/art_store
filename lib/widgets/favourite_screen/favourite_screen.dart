@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/models/product.dart';
 import 'package:shopping_cart/services/i_database_service.dart';
+import 'package:shopping_cart/widgets/product_detail_screen/product_detail_screen.dart';
 
 class FavouriteScreen extends StatefulWidget {
   const FavouriteScreen({Key key}) : super(key: key);
@@ -14,6 +15,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
   Future<List<Product>> _favouriteProductsFuture;
   int _index = 0;
   bool hasResolvedDependencies = false;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -30,7 +32,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: _favouriteProductsFuture,
-      builder: (context, snapshot) {
+      builder: (context, AsyncSnapshot<List<Product>> snapshot) {
         if (snapshot.hasData) {
           return LayoutBuilder(
             builder: (context, constraints) {
@@ -44,13 +46,13 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                     itemBuilder: (_, i) {
                       return Transform.scale(
                         scale: i == _index ? 1 : 0.9,
-                        child: Padding(
+                        child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
                             child: Image.asset(
                               snapshot.data[i].assetPath,
-                              fit: BoxFit.cover,
+                              fit: BoxFit.fitWidth,
                             ),
                           ),
                         ),
