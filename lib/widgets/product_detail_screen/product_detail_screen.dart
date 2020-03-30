@@ -8,6 +8,7 @@ import 'package:shopping_cart/models/product.dart';
 import 'package:shopping_cart/services/i_database_service.dart';
 import 'package:shopping_cart/widgets/common/app_bar_title.dart';
 import 'package:shopping_cart/widgets/product_detail_screen/star_rating.dart';
+import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   static final _currencyFormatter =
@@ -117,9 +118,8 @@ class ProductDetailScreen extends StatelessWidget {
                             AppLocalizations.productDetailScreenAddToBasketButton.toUpperCase(),
                             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                           ),
-                          onPressed: () {
-                            print('Added to cart');
-                          },
+                          onPressed: () =>
+                              Provider.of<ShoppingCartScreenStore>(context, listen: false).addProductToCart(product),
                         ),
                       ),
                     ),
