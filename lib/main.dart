@@ -7,6 +7,7 @@ import 'package:shopping_cart/localizations.dart';
 import 'package:shopping_cart/services/i_database_service.dart';
 import 'package:shopping_cart/services/sqlite_database_service.dart';
 import 'package:shopping_cart/widgets/main_screen.dart';
+import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,28 +30,32 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          color: Colors.white,
-          iconTheme: IconThemeData(
-            color: Colors.black,
+    return Provider(
+      create: (_) => ShoppingCartScreenStore(),
+      lazy: false,
+      child: MaterialApp(
+        theme: ThemeData(
+          appBarTheme: AppBarTheme(
+            color: Colors.white,
+            iconTheme: IconThemeData(
+              color: Colors.black,
+            ),
+            actionsIconTheme: IconThemeData(
+              color: Colors.black,
+            ),
           ),
-          actionsIconTheme: IconThemeData(
-            color: Colors.black,
-          ),
+          // scaffoldBackgroundColor: Colors.white,
+          fontFamily: GoogleFonts.rubik().fontFamily,
         ),
-        // scaffoldBackgroundColor: Colors.white,
-        fontFamily: GoogleFonts.rubik().fontFamily,
+        localizationsDelegates: [
+          const AppLocalizationsDelegate(),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: AppLocalizationsDelegate.supportedLocals,
+        home: MainScreen(),
       ),
-      localizationsDelegates: [
-        const AppLocalizationsDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: AppLocalizationsDelegate.supportedLocals,
-      home: MainScreen(),
     );
   }
 }
