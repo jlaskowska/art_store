@@ -26,7 +26,7 @@ class SQLiteDatabaseService implements IDatabaseService {
     }
 
     // open the database
-    _database = await sql.openDatabase(dbPath);
+    _database = await sql.openReadOnlyDatabase(dbPath);
     assert(_database != null);
   }
 
