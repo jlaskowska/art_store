@@ -11,9 +11,6 @@ class AppLocalizations {
   static String get bottomNavigationBarMenuCart =>
       _getText('bottomNavigationBarMenuCart');
 
-  static String get bottomNavigationBarMenuFavourite =>
-      _getText('bottomNavigationBarMenuFavourite');
-
   static String get appBarHeadlineArt => _getText('appBarHeadlineArt');
 
   static String get appBarHeadlineStore => _getText('appBarHeadlineStore');
@@ -32,7 +29,6 @@ class AppLocalizations {
   static Map<String, String> _enValues = {
     'bottomNavigationBarMenuHome': 'Home',
     'bottomNavigationBarMenuCart': 'Cart',
-    'bottomNavigationBarMenuFavourite': 'Favourites',
     'appBarHeadlineArt': 'Art',
     'appBarHeadlineStore': 'Store',
     'productDetailScreenAddToBasketButton': 'Add to basket',
@@ -43,7 +39,6 @@ class AppLocalizations {
   static Map<String, String> _deValues = {
     'bottomNavigationBarMenuHome': 'Startseite',
     'bottomNavigationBarMenuCart': 'Warenkorb',
-    'bottomNavigationBarMenuFavourite': 'Favourites',
     'appBarHeadlineArt': 'Art',
     'appBarHeadlineStore': 'Store',
     'productDetailScreenAddToBasketButton': 'Zum Warenkorb hinzufügen',

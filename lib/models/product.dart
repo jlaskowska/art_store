@@ -7,7 +7,6 @@ class Product {
   final String name;
   final double price;
   final Category category;
-  bool isFavourite;
   final double rating;
   final String assetPath;
 
@@ -18,7 +17,6 @@ class Product {
     @required this.category,
     @required this.price,
     @required this.rating,
-    @required this.isFavourite,
   }) : assetPath = 'assets/images/$id.jpeg';
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
@@ -27,7 +25,6 @@ class Product {
         author: json['author'],
         category: Category.values[json['category']],
         price: json['price'].toDouble(),
-        isFavourite: json['isFavourite'] == 1,
         rating: json['rating'].toDouble(),
       );
 
@@ -37,7 +34,6 @@ class Product {
         'author': author,
         'category': category.index,
         'price': price,
-        'isFavourite': isFavourite ? 1 : 0,
         'rating': rating,
       };
 

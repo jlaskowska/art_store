@@ -10,7 +10,6 @@ main() {
       'author': 'Daria Shevtsova',
       'category': 0,
       'price': 199.99,
-      'isFavourite': 0,
       'rating': 3,
     };
     final product = Product.fromJson(jsonMap);
@@ -19,7 +18,6 @@ main() {
     expect(product.author, 'Daria Shevtsova');
     expect(product.category, Category.pop);
     expect(product.price, 199.99);
-    expect(product.isFavourite, false);
     expect(product.rating, 3);
   });
 
@@ -30,7 +28,6 @@ main() {
       'author': 'Daria Shevtsova',
       'category': 0,
       'price': 199.99,
-      'isFavourite': 0,
       'rating': 3,
     };
     final product = Product(
@@ -39,7 +36,6 @@ main() {
       author: 'Daria Shevtsova',
       category: Category.pop,
       price: 199.99,
-      isFavourite: false,
       rating: 3,
     );
     final convertedJsonMap = product.toJson();

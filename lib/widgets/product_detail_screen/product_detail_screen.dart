@@ -2,11 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_cart/config/app_colors.dart';
 import 'package:shopping_cart/config/constants.dart';
 import 'package:shopping_cart/localizations.dart';
 import 'package:shopping_cart/models/product.dart';
-import 'package:shopping_cart/services/i_database_service.dart';
 import 'package:shopping_cart/widgets/common/app_bar_title.dart';
 import 'package:shopping_cart/widgets/common/stepper_count.dart';
 import 'package:shopping_cart/widgets/product_detail_screen/star_rating.dart';
@@ -26,18 +24,6 @@ class ProductDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: AppBarTitle(),
         centerTitle: true,
-        actions: <Widget>[
-          IconButton(
-            icon: product.isFavourite
-                ? Icon(Icons.favorite, color: AppColors.orange)
-                : Icon(
-                    Icons.favorite_border,
-                  ),
-            onPressed: () async {
-              await Provider.of<IDatabaseService>(context, listen: false).toggleIsFavourite(product);
-            },
-          ),
-        ],
       ),
       body: SafeArea(
         child: LayoutBuilder(
