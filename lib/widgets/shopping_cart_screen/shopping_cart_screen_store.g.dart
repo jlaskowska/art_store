@@ -9,6 +9,13 @@ part of 'shopping_cart_screen_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$ShoppingCartScreenStore on _ShoppingCartScreenStore, Store {
+  Computed<double> _$sumTotalPriceComputed;
+
+  @override
+  double get sumTotalPrice =>
+      (_$sumTotalPriceComputed ??= Computed<double>(() => super.sumTotalPrice))
+          .value;
+
   final _$_ShoppingCartScreenStoreActionController =
       ActionController(name: '_ShoppingCartScreenStore');
 
@@ -47,7 +54,7 @@ mixin _$ShoppingCartScreenStore on _ShoppingCartScreenStore, Store {
 
   @override
   String toString() {
-    final string = '';
+    final string = 'sumTotalPrice: ${sumTotalPrice.toString()}';
     return '{$string}';
   }
 }
@@ -58,6 +65,11 @@ mixin _$CartItem on _CartItem, Store {
   @override
   int get quantity =>
       (_$quantityComputed ??= Computed<int>(() => super.quantity)).value;
+  Computed<double> _$subTotalComputed;
+
+  @override
+  double get subTotal =>
+      (_$subTotalComputed ??= Computed<double>(() => super.subTotal)).value;
 
   final _$_quantityAtom = Atom(name: '_CartItem._quantity');
 
@@ -100,7 +112,8 @@ mixin _$CartItem on _CartItem, Store {
 
   @override
   String toString() {
-    final string = 'quantity: ${quantity.toString()}';
+    final string =
+        'quantity: ${quantity.toString()},subTotal: ${subTotal.toString()}';
     return '{$string}';
   }
 }

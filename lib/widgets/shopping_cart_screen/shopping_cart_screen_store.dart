@@ -11,6 +11,16 @@ abstract class _ShoppingCartScreenStore with Store {
 
   ObservableList<CartItem> get cartItems => _cartItems;
 
+  @computed
+  double get sumTotalPrice {
+    double total = 0;
+    for (CartItem cartItem in _cartItems) {
+      total += cartItem.subTotal;
+    }
+    return total;
+  }
+  // double get sumTotalPrice => _cartItems.map((item) => item.subTotal).reduce((a, b) => a + b);
+
   @action
   void addProductToCart(Product product) {
     final item = _cartItemWithProduct(product);
@@ -54,6 +64,9 @@ abstract class _CartItem with Store {
 
   @computed
   int get quantity => _quantity;
+
+  @computed
+  double get subTotal => product.price * _quantity;
 
   @action
   void incrementQuantity() => _quantity++;

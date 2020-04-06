@@ -58,7 +58,7 @@ class ShoppingCartScreen extends StatelessWidget {
                               builder: (_) => Column(
                                 children: <Widget>[
                                   Text(
-                                    currencyFormatter.format(product.price * cartItem.quantity),
+                                    currencyFormatter.format(cartItem.subTotal),
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
@@ -73,6 +73,20 @@ class ShoppingCartScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
+                            Divider(
+                              color: Colors.black,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Text(AppLocalizations.shoppingCartScreenTotal),
+                                Observer(
+                                  builder: (_) => Text(
+                                    currencyFormatter.format(store.sumTotalPrice),
+                                  ),
+                                ),
+                              ],
+                            )
                           ],
                         ),
                       );
