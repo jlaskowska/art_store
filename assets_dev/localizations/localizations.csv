@@ -4,4 +4,6 @@ bottomNavigationBarMenuCart;Cart;Warenkorb
 bottomNavigationBarMenuFavourite;Favourites;Favourites
 appBarHeadlineArt;Art;Art
 appBarHeadlineStore;Store;Store
-productDetailScreenAddToBasketButton;Add to basket;In den Warenkorb hinzufügen
+productDetailScreenAddToBasketButton;Add to basket;Zum Warenkorb hinzufügen
+shoppingCartScreenEmptyCartText;Your cart is empty.;Dein Warenkorb ist leer.
+shoppingCartScreenTotal;Total:;Summe:
