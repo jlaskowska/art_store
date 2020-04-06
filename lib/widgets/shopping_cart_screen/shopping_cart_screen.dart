@@ -22,7 +22,8 @@ class ShoppingCartScreen extends StatelessWidget {
                   itemCount: store.cartItems.length,
                   itemBuilder: (context, index) => LayoutBuilder(
                     builder: (context, constraints) {
-                      final product = store.cartItems[index].product;
+                      final cartItem = store.cartItems[index];
+                      final product = cartItem.product;
 
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
@@ -56,11 +57,9 @@ class ShoppingCartScreen extends StatelessWidget {
                                 ),
                                 Observer(
                                   builder: (_) => StepperCount(
-                                    onIncrement: () => store.incrementProductQuantity(product),
-                                    onDecrement: () => store.decrementProductQuantity(product),
-                                    // quantity: store.quantityForProduct(product),
-                                    // quantity: store.quantities[product.id],
-                                    quantity: store.cartItems[index].quantity,
+                                    onIncrement: cartItem.incrementQuantity,
+                                    onDecrement: cartItem.decrementQuantity,
+                                    quantity: cartItem.quantity,
                                     width: constraints.maxWidth * 0.25,
                                   ),
                                 ),
