@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
-import 'package:shopping_cart/widgets/shopping_cart_screen/stepper.dart';
+import 'package:shopping_cart/widgets/shopping_cart_screen/stepper_count.dart';
 
 class ShoppingCartScreen extends StatelessWidget {
   const ShoppingCartScreen({Key key}) : super(key: key);
@@ -23,7 +23,6 @@ class ShoppingCartScreen extends StatelessWidget {
                   itemBuilder: (context, index) => LayoutBuilder(
                     builder: (context, constraints) {
                       final product = store.cartItems[index].product;
-                      final quantity = store.cartItems[index].quantity;
 
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
@@ -57,12 +56,11 @@ class ShoppingCartScreen extends StatelessWidget {
                                 ),
                                 Observer(
                                   builder: (_) => StepperCount(
-                                    increment: () => store.incrementProductQuantity(product),
-                                    decrement: () => store.decrementProductQuantity(product),
-                                    // quantity: store.cartItems[index].quantity,
+                                    onIncrement: () => store.incrementProductQuantity(product),
+                                    onDecrement: () => store.decrementProductQuantity(product),
                                     // quantity: store.quantityForProduct(product),
                                     // quantity: store.quantities[product.id],
-                                    quantity: quantity,
+                                    quantity: store.cartItems[index].quantity,
                                     width: constraints.maxWidth * 0.25,
                                   ),
                                 ),

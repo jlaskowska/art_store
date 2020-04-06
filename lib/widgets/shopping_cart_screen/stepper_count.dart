@@ -4,15 +4,15 @@ import 'package:shopping_cart/config/app_colors.dart';
 class StepperCount extends StatelessWidget {
   final int quantity;
   final double width;
-  final void Function() decrement;
-  final void Function() increment;
+  final void Function() onDecrement;
+  final void Function() onIncrement;
 
   StepperCount({
     Key key,
     @required this.quantity,
     this.width = 75,
-    @required this.decrement,
-    @required this.increment,
+    @required this.onDecrement,
+    @required this.onIncrement,
   }) : super(key: key);
 
   @override
@@ -29,7 +29,7 @@ class StepperCount extends StatelessWidget {
                   Icons.remove,
                   size: 16,
                 ),
-                onPressed: decrement,
+                onPressed: onDecrement,
               ),
               Container(
                 width: 30,
@@ -41,7 +41,9 @@ class StepperCount extends StatelessWidget {
                 child: Center(
                   child: Text(
                     quantity.toString(),
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
@@ -51,7 +53,7 @@ class StepperCount extends StatelessWidget {
                   Icons.add,
                   size: 16,
                 ),
-                onPressed: increment,
+                onPressed: onIncrement,
               ),
             ],
           ),
