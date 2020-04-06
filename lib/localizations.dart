@@ -37,7 +37,7 @@ class AppLocalizations {
     'appBarHeadlineStore': 'Store',
     'productDetailScreenAddToBasketButton': 'Add to basket',
     'shoppingCartScreenEmptyCartText': 'Your cart is empty.',
-    'shoppingCartScreenTotal': 'Total',
+    'shoppingCartScreenTotal': 'Total:',
   };
 
   static Map<String, String> _deValues = {
@@ -48,7 +48,7 @@ class AppLocalizations {
     'appBarHeadlineStore': 'Store',
     'productDetailScreenAddToBasketButton': 'Zum Warenkorb hinzufügen',
     'shoppingCartScreenEmptyCartText': 'Dein Warenkorb ist leer.',
-    'shoppingCartScreenTotal': 'Summe',
+    'shoppingCartScreenTotal': 'Summe:',
   };
 
   static Map<String, Map<String, String>> _allValues = {

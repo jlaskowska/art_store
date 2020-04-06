@@ -6,4 +6,4 @@ appBarHeadlineArt;Art;Art
 appBarHeadlineStore;Store;Store
 productDetailScreenAddToBasketButton;Add to basket;Zum Warenkorb hinzufügen
 shoppingCartScreenEmptyCartText;Your cart is empty.;Dein Warenkorb ist leer.
-shoppingCartScreenTotal;Total;Summe
+shoppingCartScreenTotal;Total:;Summe:
