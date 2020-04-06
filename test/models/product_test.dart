@@ -10,7 +10,6 @@ main() {
       'author': 'Daria Shevtsova',
       'category': 0,
       'price': 199.99,
-      'isFavourite': 0,
       'rating': 3,
     };
     final product = Product.fromJson(jsonMap);
@@ -29,7 +28,6 @@ main() {
       'author': 'Daria Shevtsova',
       'category': 0,
       'price': 199.99,
-      'isFavourite': 0,
       'rating': 3,
     };
     final product = Product(
