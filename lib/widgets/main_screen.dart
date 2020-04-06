@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/localizations.dart';
 import 'package:shopping_cart/widgets/common/app_bar_title.dart';
-import 'package:shopping_cart/widgets/favourite_screen/favourite_screen.dart';
 import 'package:shopping_cart/widgets/home_screen.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen.dart';
 
@@ -18,7 +17,6 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _children = [
     HomeScreen(),
     ShoppingCartScreen(),
-    FavouriteScreen(),
   ];
 
   void onTap(int index) {
@@ -50,26 +48,9 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(Icons.shopping_cart),
             title: Text(AppLocalizations.bottomNavigationBarMenuCart),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            title: Text(AppLocalizations.bottomNavigationBarMenuFavourite),
-          ),
         ],
       ),
       body: _children[_currentIndex],
-    );
-  }
-}
-
-class PlaceholderWidget extends StatelessWidget {
-  final Color color;
-
-  PlaceholderWidget(this.color);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: color,
     );
   }
 }
