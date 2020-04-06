@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping_cart/localizations.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/stepper_count.dart';
 
@@ -16,7 +17,7 @@ class ShoppingCartScreen extends StatelessWidget {
         child: Observer(
           builder: (_) => store.cartItems.isEmpty
               ? Center(
-                  child: Text('Your cart is empty'),
+                  child: Text(AppLocalizations.shoppingCartScreenEmptyCartText),
                 )
               : ListView.builder(
                   itemCount: store.cartItems.length,

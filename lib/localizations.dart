@@ -21,6 +21,9 @@ class AppLocalizations {
   static String get productDetailScreenAddToBasketButton =>
       _getText('productDetailScreenAddToBasketButton');
 
+  static String get shoppingCartScreenEmptyCartText =>
+      _getText('shoppingCartScreenEmptyCartText');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
@@ -30,6 +33,7 @@ class AppLocalizations {
     'appBarHeadlineArt': 'Art',
     'appBarHeadlineStore': 'Store',
     'productDetailScreenAddToBasketButton': 'Add to basket',
+    'shoppingCartScreenEmptyCartText': 'Your cart is empty.',
   };
 
   static Map<String, String> _deValues = {
@@ -38,7 +42,8 @@ class AppLocalizations {
     'bottomNavigationBarMenuFavourite': 'Favourites',
     'appBarHeadlineArt': 'Art',
     'appBarHeadlineStore': 'Store',
-    'productDetailScreenAddToBasketButton': 'In den Warenkorb hinzufügen',
+    'productDetailScreenAddToBasketButton': 'Zu den Warenkorb hinzufügen',
+    'shoppingCartScreenEmptyCartText': 'Dein Warenkorb ist leer.',
   };
 
   static Map<String, Map<String, String>> _allValues = {
