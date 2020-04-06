@@ -21,7 +21,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
 
     if (!hasResolvedDependencies) {
       final sqliteDatabase = Provider.of<IDatabaseService>(context);
-      _favouriteProductsFuture = sqliteDatabase.getFavouriteProducts();
+      _favouriteProductsFuture = sqliteDatabase.getAllProducts();
 
       hasResolvedDependencies = true;
     }
