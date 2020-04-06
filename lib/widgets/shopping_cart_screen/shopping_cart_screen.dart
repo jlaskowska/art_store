@@ -3,8 +3,8 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/config/constants.dart';
 import 'package:shopping_cart/localizations.dart';
+import 'package:shopping_cart/widgets/common/stepper_count.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
-import 'package:shopping_cart/widgets/shopping_cart_screen/stepper_count.dart';
 
 class ShoppingCartScreen extends StatelessWidget {
   const ShoppingCartScreen({Key key}) : super(key: key);

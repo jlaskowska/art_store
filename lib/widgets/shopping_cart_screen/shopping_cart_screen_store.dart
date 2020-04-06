@@ -21,9 +21,11 @@ abstract class _ShoppingCartScreenStore with Store {
   }
   // double get sumTotalPrice => _cartItems.map((item) => item.subTotal).reduce((a, b) => a + b);
 
+  bool isProductInCart(Product product) => cartItemWithProduct(product) != null;
+
   @action
   void addProductToCart(Product product) {
-    final item = _cartItemWithProduct(product);
+    final item = cartItemWithProduct(product);
     if (item == null) {
       _cartItems.add(
         CartItem(
@@ -42,7 +44,7 @@ abstract class _ShoppingCartScreenStore with Store {
   @action
   void _removeCartItem(CartItem cartItem) => _cartItems.remove(cartItem);
 
-  CartItem _cartItemWithProduct(Product product) => _cartItems.firstWhere(
+  CartItem cartItemWithProduct(Product product) => _cartItems.firstWhere(
         (item) => item.product.id == product.id,
         orElse: () => null,
       );

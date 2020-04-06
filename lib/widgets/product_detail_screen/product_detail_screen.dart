@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/config/app_colors.dart';
 import 'package:shopping_cart/config/constants.dart';
@@ -7,6 +8,7 @@ import 'package:shopping_cart/localizations.dart';
 import 'package:shopping_cart/models/product.dart';
 import 'package:shopping_cart/services/i_database_service.dart';
 import 'package:shopping_cart/widgets/common/app_bar_title.dart';
+import 'package:shopping_cart/widgets/common/stepper_count.dart';
 import 'package:shopping_cart/widgets/product_detail_screen/star_rating.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
 
@@ -102,31 +104,64 @@ class ProductDetailScreen extends StatelessWidget {
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,
-                  child: Container(
+                  child: _BottomBar(
+                    product: product,
                     width: constraints.maxWidth * 0.75,
-                    child: ButtonTheme(
-                      height: 50,
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
-                        child: RaisedButton(
-                          elevation: 0,
-                          color: Colors.black,
-                          child: Text(
-                            AppLocalizations.productDetailScreenAddToBasketButton.toUpperCase(),
-                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                          ),
-                          onPressed: () =>
-                              Provider.of<ShoppingCartScreenStore>(context, listen: false).addProductToCart(product),
-                        ),
-                      ),
-                    ),
+                    store: Provider.of<ShoppingCartScreenStore>(context, listen: false),
                   ),
                 ),
-              ),
+              )
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class _BottomBar extends StatelessWidget {
+  final Product product;
+  final double width;
+  final ShoppingCartScreenStore store;
+
+  const _BottomBar({
+    @required this.product,
+    @required this.width,
+    @required this.store,
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Observer(
+      builder: (_) => !store.isProductInCart(product)
+          ? Container(
+              width: width,
+              child: ButtonTheme(
+                height: 50,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: RaisedButton(
+                    elevation: 0,
+                    color: Colors.black,
+                    child: Text(
+                      AppLocalizations.productDetailScreenAddToBasketButton.toUpperCase(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    onPressed: () => store.addProductToCart(product),
+                  ),
+                ),
+              ),
+            )
+          : StepperCount(
+              width: width,
+              quantity: store.cartItemWithProduct(product).quantity,
+              onIncrement: store.cartItemWithProduct(product).incrementQuantity,
+              onDecrement: store.cartItemWithProduct(product).decrementQuantity,
+            ),
     );
   }
 }
