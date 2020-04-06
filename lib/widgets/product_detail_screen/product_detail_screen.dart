@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/config/app_colors.dart';
+import 'package:shopping_cart/config/constants.dart';
 import 'package:shopping_cart/localizations.dart';
 import 'package:shopping_cart/models/product.dart';
 import 'package:shopping_cart/services/i_database_service.dart';
@@ -11,9 +11,6 @@ import 'package:shopping_cart/widgets/product_detail_screen/star_rating.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  static final _currencyFormatter =
-      NumberFormat.currency(locale: AppLocalizations.currentLocale.toString(), symbol: '€', decimalDigits: 2);
-
   final Product product;
 
   const ProductDetailScreen({
@@ -84,7 +81,7 @@ class ProductDetailScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 16.0, top: 8),
                     child: AutoSizeText(
-                      _currencyFormatter.format(product.price),
+                      currencyFormatter.format(product.price),
                       minFontSize: 18,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,

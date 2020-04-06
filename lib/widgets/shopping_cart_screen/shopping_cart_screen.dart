@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping_cart/config/constants.dart';
 import 'package:shopping_cart/localizations.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/stepper_count.dart';
@@ -45,26 +46,32 @@ class ShoppingCartScreen extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   product.name,
-                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
                                 ),
                                 Text(product.author),
                               ],
                             ),
-                            Column(
-                              children: <Widget>[
-                                Text(
-                                  product.price.toStringAsFixed(2),
-                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                                ),
-                                Observer(
-                                  builder: (_) => StepperCount(
+                            Observer(
+                              builder: (_) => Column(
+                                children: <Widget>[
+                                  Text(
+                                    currencyFormatter.format(product.price * cartItem.quantity),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                  StepperCount(
                                     onIncrement: cartItem.incrementQuantity,
                                     onDecrement: cartItem.decrementQuantity,
                                     quantity: cartItem.quantity,
                                     width: constraints.maxWidth * 0.25,
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ],
                         ),
