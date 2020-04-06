@@ -12,6 +12,7 @@ class ShoppingCartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final store = Provider.of<ShoppingCartScreenStore>(context, listen: false);
+    const double indent = 32;
 
     return Scaffold(
       body: SafeArea(
@@ -20,78 +21,106 @@ class ShoppingCartScreen extends StatelessWidget {
               ? Center(
                   child: Text(AppLocalizations.shoppingCartScreenEmptyCartText),
                 )
-              : ListView.builder(
-                  itemCount: store.cartItems.length,
-                  itemBuilder: (context, index) => LayoutBuilder(
-                    builder: (context, constraints) {
-                      final cartItem = store.cartItems[index];
-                      final product = cartItem.product;
+              : Column(
+                  children: <Widget>[
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: store.cartItems.length,
+                        itemBuilder: (context, index) => LayoutBuilder(
+                          builder: (context, constraints) {
+                            final cartItem = store.cartItems[index];
+                            final product = cartItem.product;
 
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Container(
-                              width: constraints.maxWidth * 0.3,
-                              height: constraints.maxWidth * 0.4,
-                              child: Image.asset(
-                                product.assetPath,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  product.name,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                Text(product.author),
-                              ],
-                            ),
-                            Observer(
-                              builder: (_) => Column(
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
                                 children: <Widget>[
-                                  Text(
-                                    currencyFormatter.format(cartItem.subTotal),
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                  Container(
+                                    width: constraints.maxWidth * 0.3,
+                                    height: constraints.maxWidth * 0.4,
+                                    child: Image.asset(
+                                      product.assetPath,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                  StepperCount(
-                                    onIncrement: cartItem.incrementQuantity,
-                                    onDecrement: cartItem.decrementQuantity,
-                                    quantity: cartItem.quantity,
-                                    width: constraints.maxWidth * 0.25,
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        left: constraints.maxWidth * 0.05,
+                                        right: constraints.maxWidth * 0.05,
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            product.name,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          Text(product.author),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Observer(
+                                    builder: (_) => Column(
+                                      children: <Widget>[
+                                        Text(
+                                          currencyFormatter.format(cartItem.subTotal),
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                        StepperCount(
+                                          onIncrement: cartItem.incrementQuantity,
+                                          onDecrement: cartItem.decrementQuantity,
+                                          quantity: cartItem.quantity,
+                                          width: constraints.maxWidth * 0.25,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
-                            ),
-                            Divider(
-                              color: Colors.black,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                Text(AppLocalizations.shoppingCartScreenTotal),
-                                Observer(
-                                  builder: (_) => Text(
-                                    currencyFormatter.format(store.sumTotalPrice),
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
+                      ),
+                    ),
+                    Divider(
+                      indent: indent,
+                      endIndent: indent,
+                      color: Colors.black45,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: indent,
+                        vertical: 16,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            AppLocalizations.shoppingCartScreenTotal,
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                          ),
+                          Observer(
+                            builder: (_) => Text(
+                              currencyFormatter.format(store.sumTotalPrice),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
           // ),
           // Padding(
