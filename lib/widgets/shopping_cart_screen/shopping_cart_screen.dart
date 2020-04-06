@@ -7,12 +7,13 @@ import 'package:shopping_cart/widgets/common/stepper_count.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
 
 class ShoppingCartScreen extends StatelessWidget {
+  static const double _indent = 32;
+
   const ShoppingCartScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final store = Provider.of<ShoppingCartScreenStore>(context, listen: false);
-    const double indent = 32;
 
     return Scaffold(
       body: SafeArea(
@@ -92,13 +93,13 @@ class ShoppingCartScreen extends StatelessWidget {
                       ),
                     ),
                     Divider(
-                      indent: indent,
-                      endIndent: indent,
+                      indent: _indent,
+                      endIndent: _indent,
                       color: Colors.black45,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: indent,
+                        horizontal: _indent,
                         vertical: 16,
                       ),
                       child: Row(
@@ -122,23 +123,6 @@ class ShoppingCartScreen extends StatelessWidget {
                     )
                   ],
                 ),
-          // ),
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4),
-          //   child: ListTile(
-          //     leading: Image.asset(
-          //       store.cartItems[index].product.assetPath,
-          //       fit: BoxFit.cover,
-          //     ),
-          //     title: Text(store.cartItems[index].product.name),
-          //     subtitle: Text(store.cartItems[index].product.author),
-          //     trailing: Text(
-          //       store.cartItems[index].product.price.toStringAsFixed(2),
-          //       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-          //     ),
-          //   ),
-          // ),
-          // ),
         ),
       ),
     );
