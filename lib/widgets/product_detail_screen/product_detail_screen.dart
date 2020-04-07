@@ -6,6 +6,7 @@ import 'package:shopping_cart/config/constants.dart';
 import 'package:shopping_cart/localizations.dart';
 import 'package:shopping_cart/models/product.dart';
 import 'package:shopping_cart/widgets/common/app_bar_title.dart';
+import 'package:shopping_cart/widgets/common/shopping_cart_button.dart';
 import 'package:shopping_cart/widgets/common/stepper_count.dart';
 import 'package:shopping_cart/widgets/product_detail_screen/star_rating.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
@@ -121,26 +122,31 @@ class _BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(
       builder: (_) => !store.isProductInCart(product)
-          ? Container(
+          // ? Container(
+          //     width: width,
+          //     child: ButtonTheme(
+          //       height: 50,
+          //       child: Padding(
+          //         padding: const EdgeInsets.only(bottom: 8.0),
+          //         child: RaisedButton(
+          //           elevation: 0,
+          //           color: Colors.black,
+          //           child: Text(
+          //             AppLocalizations.productDetailScreenAddToBasketButton.toUpperCase(),
+          //             style: TextStyle(
+          //               color: Colors.white,
+          //               fontWeight: FontWeight.bold,
+          //             ),
+          //           ),
+          //           onPressed: () => store.addProductToCart(product),
+          //         ),
+          //       ),
+          //     ),
+          //   )
+          ? ShoppingCartButton(
+              label: AppLocalizations.productDetailScreenAddToBasketButton.toUpperCase(),
               width: width,
-              child: ButtonTheme(
-                height: 50,
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: RaisedButton(
-                    elevation: 0,
-                    color: Colors.black,
-                    child: Text(
-                      AppLocalizations.productDetailScreenAddToBasketButton.toUpperCase(),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    onPressed: () => store.addProductToCart(product),
-                  ),
-                ),
-              ),
+              onPressed: () => store.addProductToCart(product),
             )
           : StepperCount(
               width: width,
