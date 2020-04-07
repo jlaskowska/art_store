@@ -24,11 +24,6 @@ abstract class _ShoppingCartScreenStore with Store {
   bool isProductInCart(Product product) => cartItemWithProduct(product) != null;
 
   @action
-  void clearShoppingCart() {
-    _cartItems.clear();
-  }
-
-  @action
   void addProductToCart(Product product) {
     final item = cartItemWithProduct(product);
     if (item == null) {
@@ -45,6 +40,9 @@ abstract class _ShoppingCartScreenStore with Store {
 
   @action
   void deleteProductFromCart(Product product) => _cartItems.removeWhere((item) => item.product.id == product.id);
+
+  @action
+  void clearShoppingCart() => _cartItems.clear();
 
   @action
   void _removeCartItem(CartItem cartItem) => _cartItems.remove(cartItem);

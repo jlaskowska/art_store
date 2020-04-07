@@ -122,27 +122,6 @@ class _BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(
       builder: (_) => !store.isProductInCart(product)
-          // ? Container(
-          //     width: width,
-          //     child: ButtonTheme(
-          //       height: 50,
-          //       child: Padding(
-          //         padding: const EdgeInsets.only(bottom: 8.0),
-          //         child: RaisedButton(
-          //           elevation: 0,
-          //           color: Colors.black,
-          //           child: Text(
-          //             AppLocalizations.productDetailScreenAddToBasketButton.toUpperCase(),
-          //             style: TextStyle(
-          //               color: Colors.white,
-          //               fontWeight: FontWeight.bold,
-          //             ),
-          //           ),
-          //           onPressed: () => store.addProductToCart(product),
-          //         ),
-          //       ),
-          //     ),
-          //   )
           ? ShoppingCartButton(
               label: AppLocalizations.productDetailScreenAddToBasketButton.toUpperCase(),
               width: width,
