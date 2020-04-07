@@ -39,7 +39,7 @@ class AppLocalizations {
     'shoppingCartScreenTotal': 'Total:',
     'shoppingCartButtonCheckout': 'Checkout',
     'shoppingCartButtonCheckoutOK': 'Ok',
-    'shoppingCartButtonCheckoutContent': 'Thank you for shopping at ArtStore. We have received your order. ',
+    'shoppingCartButtonCheckoutContent': 'Congratualtions! We have received your order. ',
     'shoppingCartButtonCheckoutTitle': 'Oder Confirmation',
   };
 
@@ -53,7 +53,7 @@ class AppLocalizations {
     'shoppingCartScreenTotal': 'Summe:',
     'shoppingCartButtonCheckout': 'Kasse',
     'shoppingCartButtonCheckoutOK': 'Ok',
-    'shoppingCartButtonCheckoutContent': 'Vielen Dank für Ihre Bestellung. Wir haben Ihre Bestellung bekommen. ',
+    'shoppingCartButtonCheckoutContent': 'Herzlichen Glückwunsch! Wir haben Ihre Bestellung bekommen. ',
     'shoppingCartButtonCheckoutTitle': 'Bestellbestätigung',
   };
 
