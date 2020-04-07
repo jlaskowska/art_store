@@ -20,6 +20,17 @@ mixin _$ShoppingCartScreenStore on _ShoppingCartScreenStore, Store {
       ActionController(name: '_ShoppingCartScreenStore');
 
   @override
+  void clearShoppingCart() {
+    final _$actionInfo =
+        _$_ShoppingCartScreenStoreActionController.startAction();
+    try {
+      return super.clearShoppingCart();
+    } finally {
+      _$_ShoppingCartScreenStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void addProductToCart(Product product) {
     final _$actionInfo =
         _$_ShoppingCartScreenStoreActionController.startAction();

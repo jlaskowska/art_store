@@ -24,6 +24,11 @@ abstract class _ShoppingCartScreenStore with Store {
   bool isProductInCart(Product product) => cartItemWithProduct(product) != null;
 
   @action
+  void clearShoppingCart() {
+    _cartItems.clear();
+  }
+
+  @action
   void addProductToCart(Product product) {
     final item = cartItemWithProduct(product);
     if (item == null) {
