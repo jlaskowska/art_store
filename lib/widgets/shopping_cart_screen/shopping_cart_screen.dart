@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/config/constants.dart';
 import 'package:shopping_cart/localizations.dart';
+import 'package:shopping_cart/widgets/common/adaptive_dialog.dart';
 import 'package:shopping_cart/widgets/common/shopping_cart_button.dart';
 import 'package:shopping_cart/widgets/common/stepper_count.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
-import 'dart:io' show Platform;
 
 class ShoppingCartScreen extends StatelessWidget {
   static const double _indent = 32;
@@ -131,39 +130,19 @@ class ShoppingCartScreen extends StatelessWidget {
                           LayoutBuilder(
                             builder: (_, constraints) => ShoppingCartButton(
                               width: constraints.maxWidth * 0.75,
-                              onPressed: () {
-                                showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return Platform.isAndroid
-                                          ? AlertDialog(
-                                              title: Text(AppLocalizations.shoppingCartButtonCheckoutTitle),
-                                              content: Text(AppLocalizations.shoppingCartButtonCheckoutContent),
-                                              actions: <Widget>[
-                                                FlatButton(
-                                                  onPressed: () {
-                                                    store.clearShoppingCart();
-                                                    Navigator.of(context).pop();
-                                                  },
-                                                  child: Text(AppLocalizations.shoppingCartButtonCheckoutOK),
-                                                )
-                                              ],
-                                            )
-                                          : CupertinoAlertDialog(
-                                              title: Text(AppLocalizations.shoppingCartButtonCheckoutTitle),
-                                              content: Text(AppLocalizations.shoppingCartButtonCheckoutContent),
-                                              actions: <Widget>[
-                                                FlatButton(
-                                                  onPressed: () {
-                                                    store.clearShoppingCart();
-                                                    Navigator.of(context).pop();
-                                                  },
-                                                  child: Text(AppLocalizations.shoppingCartButtonCheckoutOK),
-                                                )
-                                              ],
-                                            );
-                                    });
-                              },
+                              onPressed: () => showAdaptiveDialog(
+                                context: context,
+                                adaptiveDialog: AdaptiveDialog(
+                                  title: AppLocalizations.shoppingCartButtonCheckoutTitle,
+                                  content: AppLocalizations.shoppingCartButtonCheckoutContent,
+                                  actionLabel: AppLocalizations.shoppingCartButtonCheckoutOK,
+                                  onPressed: () {
+                                    store.clearShoppingCart();
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                                barrierDismissible: false,
+                              ),
                               label: AppLocalizations.shoppingCartButtonCheckout.toUpperCase(),
                             ),
                           ),
