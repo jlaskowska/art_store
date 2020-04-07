@@ -42,6 +42,9 @@ abstract class _ShoppingCartScreenStore with Store {
   void deleteProductFromCart(Product product) => _cartItems.removeWhere((item) => item.product.id == product.id);
 
   @action
+  void clearShoppingCart() => _cartItems.clear();
+
+  @action
   void _removeCartItem(CartItem cartItem) => _cartItems.remove(cartItem);
 
   CartItem cartItemWithProduct(Product product) => _cartItems.firstWhere(

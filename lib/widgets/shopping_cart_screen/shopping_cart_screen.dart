@@ -3,6 +3,8 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/config/constants.dart';
 import 'package:shopping_cart/localizations.dart';
+import 'package:shopping_cart/widgets/common/adaptive_dialog.dart';
+import 'package:shopping_cart/widgets/common/shopping_cart_button.dart';
 import 'package:shopping_cart/widgets/common/stepper_count.dart';
 import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
 
@@ -102,20 +104,46 @@ class ShoppingCartScreen extends StatelessWidget {
                         horizontal: _indent,
                         vertical: 16,
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      child: Column(
                         children: <Widget>[
-                          Text(
-                            AppLocalizations.shoppingCartScreenTotal,
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 16.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  AppLocalizations.shoppingCartScreenTotal,
+                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                                ),
+                                Observer(
+                                  builder: (_) => Text(
+                                    currencyFormatter.format(store.sumTotalPrice),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 24,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          Observer(
-                            builder: (_) => Text(
-                              currencyFormatter.format(store.sumTotalPrice),
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 24,
+                          LayoutBuilder(
+                            builder: (_, constraints) => ShoppingCartButton(
+                              width: constraints.maxWidth * 0.75,
+                              onPressed: () => showAdaptiveDialog(
+                                context: context,
+                                adaptiveDialog: AdaptiveDialog(
+                                  title: AppLocalizations.shoppingCartButtonCheckoutTitle,
+                                  content: AppLocalizations.shoppingCartButtonCheckoutContent,
+                                  actionLabel: AppLocalizations.shoppingCartButtonCheckoutOK,
+                                  onPressed: () {
+                                    store.clearShoppingCart();
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                                barrierDismissible: false,
                               ),
+                              label: AppLocalizations.shoppingCartButtonCheckout.toUpperCase(),
                             ),
                           ),
                         ],

@@ -42,6 +42,17 @@ mixin _$ShoppingCartScreenStore on _ShoppingCartScreenStore, Store {
   }
 
   @override
+  void clearShoppingCart() {
+    final _$actionInfo =
+        _$_ShoppingCartScreenStoreActionController.startAction();
+    try {
+      return super.clearShoppingCart();
+    } finally {
+      _$_ShoppingCartScreenStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void _removeCartItem(CartItem cartItem) {
     final _$actionInfo =
         _$_ShoppingCartScreenStoreActionController.startAction();
