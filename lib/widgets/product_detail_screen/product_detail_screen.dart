@@ -32,12 +32,12 @@ class ProductDetailScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                child: Hero(
-                  tag: product.id,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(40),
-                    ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(40),
+                  ),
+                  child: Hero(
+                    tag: product.id,
                     child: Image.asset(
                       product.assetPath,
                       fit: BoxFit.cover,
