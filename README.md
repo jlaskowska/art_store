@@ -1,6 +1,6 @@
-# shopping_cart
+# art_store
 
-A shopping cart app built using Flutter.
+An app built using Flutter where the user can buy artworks.
 
 This project uses flappy_translator to generate a i18n localization file from CSV using the command
 ```

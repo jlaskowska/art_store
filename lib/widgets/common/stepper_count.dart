@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_cart/config/app_colors.dart';
+import 'package:art_store/config/app_colors.dart';
 
 class StepperCount extends StatelessWidget {
   final int quantity;

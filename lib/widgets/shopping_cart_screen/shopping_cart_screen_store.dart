@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 import 'package:mobx/mobx.dart';
-import 'package:shopping_cart/models/product.dart';
+import 'package:art_store/models/product.dart';
 
 part 'shopping_cart_screen_store.g.dart';
 

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import 'package:shopping_cart/models/product.dart';
+import 'package:art_store/models/product.dart';
 
-import 'package:shopping_cart/services/i_database_service.dart';
+import 'package:art_store/services/i_database_service.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:shopping_cart/widgets/product_detail_screen/product_detail_screen.dart';
-import 'package:shopping_cart/widgets/teaser.dart';
+import 'package:art_store/widgets/product_detail_screen/product_detail_screen.dart';
+import 'package:art_store/widgets/teaser.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);

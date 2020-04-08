@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_cart/enums/category.dart';
+import 'package:art_store/enums/category.dart';
 
 class Product {
   final int id;

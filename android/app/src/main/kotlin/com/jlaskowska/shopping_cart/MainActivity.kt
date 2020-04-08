@@ -1,4 +1,4 @@
-package com.jlaskowska.shoppingcart
+package com.jlaskowska.artstore
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

@@ -3,11 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_cart/localizations.dart';
-import 'package:shopping_cart/services/i_database_service.dart';
-import 'package:shopping_cart/services/sqlite_database_service.dart';
-import 'package:shopping_cart/widgets/main_screen.dart';
-import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
+import 'package:art_store/localizations.dart';
+import 'package:art_store/services/i_database_service.dart';
+import 'package:art_store/services/sqlite_database_service.dart';
+import 'package:art_store/widgets/main_screen.dart';
+import 'package:art_store/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

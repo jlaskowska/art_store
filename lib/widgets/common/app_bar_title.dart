@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shopping_cart/localizations.dart';
+import 'package:art_store/localizations.dart';
 
 class AppBarTitle extends StatelessWidget {
   const AppBarTitle({Key key}) : super(key: key);

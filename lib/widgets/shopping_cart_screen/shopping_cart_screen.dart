@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_cart/config/constants.dart';
-import 'package:shopping_cart/localizations.dart';
-import 'package:shopping_cart/widgets/common/adaptive_dialog.dart';
-import 'package:shopping_cart/widgets/common/shopping_cart_button.dart';
-import 'package:shopping_cart/widgets/common/stepper_count.dart';
-import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
+import 'package:art_store/config/constants.dart';
+import 'package:art_store/localizations.dart';
+import 'package:art_store/widgets/common/adaptive_dialog.dart';
+import 'package:art_store/widgets/common/shopping_cart_button.dart';
+import 'package:art_store/widgets/common/stepper_count.dart';
+import 'package:art_store/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
 
 class ShoppingCartScreen extends StatelessWidget {
   static const double _indent = 32;
