@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:shopping_cart/localizations.dart';
+import 'package:art_store/localizations.dart';
 
 final currencyFormatter = NumberFormat.currency(
   locale: AppLocalizations.currentLocale.toString(),

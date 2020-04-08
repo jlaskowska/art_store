@@ -2,14 +2,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_cart/config/constants.dart';
-import 'package:shopping_cart/localizations.dart';
-import 'package:shopping_cart/models/product.dart';
-import 'package:shopping_cart/widgets/common/app_bar_title.dart';
-import 'package:shopping_cart/widgets/common/shopping_cart_button.dart';
-import 'package:shopping_cart/widgets/common/stepper_count.dart';
-import 'package:shopping_cart/widgets/product_detail_screen/star_rating.dart';
-import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
+import 'package:art_store/config/constants.dart';
+import 'package:art_store/localizations.dart';
+import 'package:art_store/models/product.dart';
+import 'package:art_store/widgets/common/app_bar_title.dart';
+import 'package:art_store/widgets/common/shopping_cart_button.dart';
+import 'package:art_store/widgets/common/stepper_count.dart';
+import 'package:art_store/widgets/product_detail_screen/star_rating.dart';
+import 'package:art_store/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   final Product product;

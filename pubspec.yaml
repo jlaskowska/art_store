@@ -1,5 +1,5 @@
-name: shopping_cart
-description: A shopping cart app built using Flutter.
+name: art_store
+description: An app built using Flutter where the user can buy artworks.
 version: 1.0.0+1
 
 environment:

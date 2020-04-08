@@ -1,4 +1,4 @@
-import 'package:shopping_cart/models/product.dart';
+import 'package:art_store/models/product.dart';
 
 abstract class IDatabaseService {
   Future<void> initialize();

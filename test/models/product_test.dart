@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:shopping_cart/enums/category.dart';
-import 'package:shopping_cart/models/product.dart';
+import 'package:art_store/enums/category.dart';
+import 'package:art_store/models/product.dart';
 
 main() {
   test('fomJson', () {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_cart/localizations.dart';
-import 'package:shopping_cart/widgets/common/app_bar_title.dart';
-import 'package:shopping_cart/widgets/home_screen.dart';
-import 'package:shopping_cart/widgets/shopping_cart_screen/shopping_cart_screen.dart';
+import 'package:art_store/localizations.dart';
+import 'package:art_store/widgets/common/app_bar_title.dart';
+import 'package:art_store/widgets/home_screen.dart';
+import 'package:art_store/widgets/shopping_cart_screen/shopping_cart_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key key}) : super(key: key);

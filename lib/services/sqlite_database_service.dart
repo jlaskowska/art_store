@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/services.dart' show ByteData, rootBundle;
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:shopping_cart/models/product.dart';
-import 'package:shopping_cart/services/i_database_service.dart';
+import 'package:art_store/models/product.dart';
+import 'package:art_store/services/i_database_service.dart';
 import 'package:sqflite/sqflite.dart' as sql;
 
 class SQLiteDatabaseService implements IDatabaseService {
