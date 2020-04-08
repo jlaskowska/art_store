@@ -34,60 +34,65 @@ class ShoppingCartScreen extends StatelessWidget {
                             final cartItem = store.cartItems[index];
                             final product = cartItem.product;
 
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: <Widget>[
-                                  Container(
-                                    width: constraints.maxWidth * 0.3,
-                                    height: constraints.maxWidth * 0.4,
-                                    child: Image.asset(
-                                      product.assetPath,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                        left: constraints.maxWidth * 0.05,
-                                        right: constraints.maxWidth * 0.05,
+                            return Dismissible(
+                              key: Key('$product.id'),
+                              direction: DismissDirection.endToStart,
+                              onDismissed: (_) => store.deleteProductFromCart(product),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: <Widget>[
+                                    Container(
+                                      width: constraints.maxWidth * 0.3,
+                                      height: constraints.maxWidth * 0.4,
+                                      child: Image.asset(
+                                        product.assetPath,
+                                        fit: BoxFit.cover,
                                       ),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                          left: constraints.maxWidth * 0.05,
+                                          right: constraints.maxWidth * 0.05,
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text(
+                                              product.name,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            Text(product.author),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Observer(
+                                      builder: (_) => Column(
                                         children: <Widget>[
                                           Text(
-                                            product.name,
+                                            currencyFormatter.format(cartItem.subTotal),
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 16,
+                                              fontSize: 18,
                                             ),
                                           ),
-                                          Text(product.author),
+                                          StepperCount(
+                                            onIncrement: cartItem.incrementQuantity,
+                                            onDecrement: cartItem.decrementQuantity,
+                                            quantity: cartItem.quantity,
+                                            width: constraints.maxWidth * 0.25,
+                                          ),
                                         ],
                                       ),
                                     ),
-                                  ),
-                                  Observer(
-                                    builder: (_) => Column(
-                                      children: <Widget>[
-                                        Text(
-                                          currencyFormatter.format(cartItem.subTotal),
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18,
-                                          ),
-                                        ),
-                                        StepperCount(
-                                          onIncrement: cartItem.incrementQuantity,
-                                          onDecrement: cartItem.decrementQuantity,
-                                          quantity: cartItem.quantity,
-                                          width: constraints.maxWidth * 0.25,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             );
                           },
