@@ -8,6 +8,7 @@ class Teaser extends StatelessWidget {
   final String title;
   final String author;
   final Function onTap;
+  final int id;
 
   const Teaser({
     Key key,
@@ -15,6 +16,7 @@ class Teaser extends StatelessWidget {
     @required this.title,
     @required this.author,
     @required this.onTap,
+    @required this.id,
   }) : super(key: key);
 
   @override
@@ -34,9 +36,12 @@ class Teaser extends StatelessWidget {
                 topLeft: Radius.circular(_borderRadius),
                 topRight: Radius.circular(_borderRadius),
               ),
-              child: Image.asset(
-                assetPath,
-                fit: BoxFit.cover,
+              child: Hero(
+                tag: id,
+                child: Image.asset(
+                  assetPath,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Padding(
