@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:art_store/localizations.dart';
@@ -8,27 +7,26 @@ class AppBarTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoSizeText.rich(
+    return Text.rich(
       TextSpan(
         text: AppLocalizations.appBarHeadlineArt,
         style: TextStyle(
           fontFamily: 'Arthure',
           color: Colors.black,
-          fontSize: 52,
+          fontSize: 48,
         ),
         children: <TextSpan>[
           TextSpan(
             text: AppLocalizations.appBarHeadlineStore,
             style: TextStyle(
               fontFamily: GoogleFonts.rubik().fontFamily,
-              fontSize: 20,
+              fontSize: 18,
               color: Colors.black,
             ),
           ),
         ],
       ),
       maxLines: 1,
-      minFontSize: 20,
     );
   }
 }
