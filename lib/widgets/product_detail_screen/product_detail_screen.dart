@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
@@ -61,9 +60,8 @@ class ProductDetailScreen extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(left: 16.0, top: 8),
-                    child: AutoSizeText(
+                    child: Text(
                       product.name,
-                      minFontSize: 20,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
@@ -72,9 +70,8 @@ class ProductDetailScreen extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(right: 16.0, top: 8),
-                    child: AutoSizeText(
+                    child: Text(
                       currencyFormatter.format(product.price),
-                      minFontSize: 18,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
@@ -85,9 +82,8 @@ class ProductDetailScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 16.0, top: 8),
-                child: AutoSizeText(
+                child: Text(
                   product.author,
-                  minFontSize: 12,
                   style: TextStyle(fontSize: 14),
                 ),
               ),
