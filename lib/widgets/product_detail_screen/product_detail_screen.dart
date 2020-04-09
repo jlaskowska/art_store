@@ -1,3 +1,4 @@
+import 'package:art_store/widgets/product_detail_screen/zoom_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
@@ -31,21 +32,9 @@ class ProductDetailScreen extends StatelessWidget {
           builder: (context, constraints) => Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(40),
-                  ),
-                  child: Hero(
-                    tag: product.id,
-                    child: Image.asset(
-                      product.assetPath,
-                      fit: BoxFit.cover,
-                      width: constraints.maxWidth,
-                      height: constraints.maxHeight * 0.6,
-                    ),
-                  ),
-                ),
+              ZoomProduct(
+                product: product,
+                constraints: constraints,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 16.0, left: 16),
