@@ -7,20 +7,22 @@ class AppBarTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appBarHeight = AppBar().preferredSize.height;
+
     return Text.rich(
       TextSpan(
         text: AppLocalizations.appBarHeadlineArt,
         style: TextStyle(
           fontFamily: 'Arthure',
           color: Colors.black,
-          fontSize: 48,
+          fontSize: appBarHeight * 0.85,
         ),
         children: <TextSpan>[
           TextSpan(
             text: AppLocalizations.appBarHeadlineStore,
             style: TextStyle(
               fontFamily: GoogleFonts.rubik().fontFamily,
-              fontSize: 18,
+              fontSize: appBarHeight * 0.30,
               color: Colors.black,
             ),
           ),
