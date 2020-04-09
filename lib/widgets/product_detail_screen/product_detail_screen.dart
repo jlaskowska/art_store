@@ -9,6 +9,7 @@ import 'package:art_store/widgets/common/app_bar_title.dart';
 import 'package:art_store/widgets/common/shopping_cart_button.dart';
 import 'package:art_store/widgets/common/stepper_count.dart';
 import 'package:art_store/widgets/product_detail_screen/star_rating.dart';
+import 'package:art_store/widgets/product_detail_screen/animated_star_rating.dart';
 import 'package:art_store/widgets/shopping_cart_screen/shopping_cart_screen_store.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -49,7 +50,9 @@ class ProductDetailScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 16.0, left: 16),
-                child: StarRating(productRating: product.rating),
+                child: _Stars(
+                  rating: product.rating,
+                ),
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -134,5 +137,30 @@ class _BottomBar extends StatelessWidget {
               onDecrement: store.cartItemWithProduct(product).decrementQuantity,
             ),
     );
+  }
+}
+
+class _Stars extends StatefulWidget {
+  final double rating;
+
+  _Stars({Key key, @required this.rating}) : super(key: key);
+
+  @override
+  __StarsState createState() => __StarsState();
+}
+
+class __StarsState extends State<_Stars> {
+  bool _isDelayDone = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(Duration(milliseconds: 600)).then((_) => setState(() => _isDelayDone = true));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _isDelayDone ? AnimatedStarRating(prodcutRating: widget.rating) : StarRating(productRating: 0);
   }
 }
