@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
       create: (_) => ShoppingCartScreenStore(),
       lazy: false,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           appBarTheme: AppBarTheme(
             color: Colors.white,
@@ -44,7 +45,6 @@ class MyApp extends StatelessWidget {
               color: Colors.black,
             ),
           ),
-          // scaffoldBackgroundColor: Colors.white,
           fontFamily: GoogleFonts.rubik().fontFamily,
         ),
         localizationsDelegates: [
