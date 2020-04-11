@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        title: AppBarTitle(),
+        title: const AppBarTitle(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,

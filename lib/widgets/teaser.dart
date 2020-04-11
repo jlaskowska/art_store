@@ -48,14 +48,14 @@ class Teaser extends StatelessWidget {
               padding: const EdgeInsets.only(top: _padding, bottom: 4, left: _padding),
               child: Text(
                 title,
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: _padding, left: _padding),
               child: Text(
                 author,
-                style: TextStyle(fontSize: 12),
+                style: const TextStyle(fontSize: 12),
               ),
             ),
           ],

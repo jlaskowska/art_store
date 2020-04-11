@@ -25,7 +25,7 @@ class ShoppingCartButton extends StatelessWidget {
             color: Colors.black,
             child: Text(
               label,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),

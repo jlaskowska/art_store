@@ -25,7 +25,7 @@ class StepperCount extends StatelessWidget {
           children: <Widget>[
             IconButton(
               padding: EdgeInsets.all(0),
-              icon: Icon(
+              icon: const Icon(
                 Icons.remove,
                 size: 16,
               ),
@@ -34,14 +34,14 @@ class StepperCount extends StatelessWidget {
             Container(
               width: 30,
               height: 30,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: AppColors.orange,
               ),
               child: Center(
                 child: Text(
                   quantity.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -49,8 +49,8 @@ class StepperCount extends StatelessWidget {
               ),
             ),
             IconButton(
-              padding: EdgeInsets.all(0),
-              icon: Icon(
+              padding: const EdgeInsets.all(0),
+              icon: const Icon(
                 Icons.add,
                 size: 16,
               ),

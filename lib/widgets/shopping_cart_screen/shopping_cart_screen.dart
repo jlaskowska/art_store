@@ -62,7 +62,7 @@ class ShoppingCartScreen extends StatelessWidget {
                                           children: <Widget>[
                                             Text(
                                               product.name,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 16,
                                               ),
@@ -77,7 +77,7 @@ class ShoppingCartScreen extends StatelessWidget {
                                         children: <Widget>[
                                           Text(
                                             currencyFormatter.format(cartItem.subTotal),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 18,
                                             ),
