@@ -10,3 +10,6 @@ shoppingCartButtonCheckout;Checkout;Kasse
 shoppingCartButtonCheckoutOK;Ok;Ok
 shoppingCartButtonCheckoutContent;Congratualtions! We have received your order.;Herzlichen Glückwunsch! Wir haben Ihre Bestellung bekommen.
 shoppingCartButtonCheckoutTitle;Oder Confirmation;Bestellbestätigung
+adaptiveDialogErrorPopupTitle;Error;Fehler
+adaptiveDialogErrorPopupContent;"Something went wrong. Please try again. ";Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.
+adaptiveDialogErrorPopupButtonLabel;Try Again;Wiederholen
