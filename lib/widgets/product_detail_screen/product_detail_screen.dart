@@ -24,7 +24,7 @@ class ProductDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AppBarTitle(),
+        title: const AppBarTitle(),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -51,7 +51,7 @@ class ProductDetailScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 16.0, top: 8),
                     child: Text(
                       product.name,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
                       ),
@@ -61,7 +61,7 @@ class ProductDetailScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 16.0, top: 8),
                     child: Text(
                       currencyFormatter.format(product.price),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
                       ),
@@ -73,7 +73,7 @@ class ProductDetailScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 16.0, top: 8),
                 child: Text(
                   product.author,
-                  style: TextStyle(fontSize: 14),
+                  style: const TextStyle(fontSize: 14),
                 ),
               ),
               Expanded(

@@ -25,7 +25,7 @@ class _AnimatedStarRatingState extends State<AnimatedStarRating> with SingleTick
 
   @override
   Widget build(BuildContext context) {
-    _controller.duration = Duration(milliseconds: 500);
+    _controller.duration = const Duration(milliseconds: 500);
 
     _controller.reset();
     Animation _animation = Tween<double>(begin: 0, end: widget.prodcutRating).animate(_controller);
