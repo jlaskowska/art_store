@@ -1,9 +1,9 @@
+import 'package:art_store/widgets/product_detail_screen/star_rating.dart';
 import 'package:flutter/material.dart';
-
-import 'star_rating.dart';
 
 class AnimatedStarRating extends StatefulWidget {
   final double prodcutRating;
+
   AnimatedStarRating({
     Key key,
     @required this.prodcutRating,
@@ -15,6 +15,7 @@ class AnimatedStarRating extends StatefulWidget {
 
 class _AnimatedStarRatingState extends State<AnimatedStarRating> with SingleTickerProviderStateMixin {
   AnimationController _controller;
+  double currentValue = 0;
 
   @override
   void initState() {
@@ -28,7 +29,12 @@ class _AnimatedStarRatingState extends State<AnimatedStarRating> with SingleTick
     _controller.duration = const Duration(milliseconds: 500);
 
     _controller.reset();
-    Animation _animation = Tween<double>(begin: 0, end: widget.prodcutRating).animate(_controller);
+    Animation _animation = Tween<double>(begin: currentValue, end: widget.prodcutRating).animate(_controller);
+    _animation.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        currentValue = widget.prodcutRating;
+      }
+    });
     _controller.forward();
 
     return AnimatedBuilder(
